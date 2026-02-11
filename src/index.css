@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NeonStream Light Theme Design System
+   - Rounded buttons with neon glow
+   - Nunito Bold typography
+   - Light/white theme with dynamic neon colors
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+@layer base {
+  :root {
+    /* Dark theme base */
+    --background: 220 20% 8%;
+    --foreground: 220 10% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 220 10% 95%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 10% 95%;
+
+    --primary: 211 100% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 10% 95%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 220 20% 20%;
+    --accent-foreground: 220 10% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 211 100% 52%;
+
+    --radius: 9999px;
+
+    /* Neon glow colors - single dark blue token */
+    --neon-blue: 211 100% 52%;
+
+    /* Dynamic theme colors (updated by album artwork) */
+    --dynamic-primary: 211 100% 52%;
+    --dynamic-secondary: 220 80% 60%;
+    --dynamic-glow: 211 100% 52%;
+
+    /* Sidebar - dark theme */
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 220 10% 95%;
+    --sidebar-primary: 211 100% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 220 10% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 211 100% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Global Nunito Bold typography */
+  h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, li, div {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Fully rounded buttons globally */
+  button, .btn, [role="button"] {
+    border-radius: 9999px !important;
+  }
+}
+
+@layer components {
+  /* Neon glow effects - single dark blue token */
+  .neon-glow-blue {
+    box-shadow: 0 0 8px hsl(var(--neon-blue)),
+                0 0 16px hsl(var(--neon-blue) / 0.6),
+                0 0 32px hsl(var(--neon-blue) / 0.4),
+                0 0 48px hsl(var(--neon-blue) / 0.2);
+  }
+
+  .neon-glow-dynamic {
+    box-shadow: 0 0 8px hsl(var(--dynamic-glow)),
+                0 0 16px hsl(var(--dynamic-glow) / 0.6),
+                0 0 32px hsl(var(--dynamic-glow) / 0.4),
+                0 0 48px hsl(var(--dynamic-glow) / 0.2);
+  }
+
+  /* Neon text glow */
+  .neon-text-blue {
+    color: hsl(var(--neon-blue));
+    text-shadow: 0 0 8px hsl(var(--neon-blue) / 0.6),
+                 0 0 16px hsl(var(--neon-blue) / 0.4);
+  }
+
+  /* Dark theme card styling */
+  .glass-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 4px 12px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Player gradient overlay for light theme */
+  .player-gradient {
+    background: linear-gradient(
+      to top,
+      hsl(var(--background)) 0%,
+      hsl(var(--background) / 0.9) 50%,
+      transparent 100%
+    );
+  }
+
+  /* Neon button base - always visible glow */
+  .neon-button {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .neon-button::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: inherit;
+    filter: blur(12px);
+    opacity: 0.6;
+    z-index: -1;
+    transition: all 0.3s ease;
+  }
+
+  .neon-button:hover::before {
+    filter: blur(18px);
+    opacity: 0.8;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Animated gradient background */
+  .animated-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Pulse animation for active states */
+  .pulse-neon {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 8px hsl(var(--neon-blue)),
+                  0 0 16px hsl(var(--neon-blue) / 0.6),
+                  0 0 32px hsl(var(--neon-blue) / 0.4);
+    }
+    50% { 
+      box-shadow: 0 0 12px hsl(var(--neon-blue)),
+                  0 0 24px hsl(var(--neon-blue) / 0.7),
+                  0 0 48px hsl(var(--neon-blue) / 0.5);
+    }
+  }
+}
