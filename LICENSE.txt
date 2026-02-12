@@ -1,0 +1,27 @@
+Copyright (c) 2026 Isis1010
+
+All Rights Reserved.
+
+This repository and all associated files (the "Software") are the exclusive property of the copyright holder.
+
+No Permission to Use
+--------------------
+Permission is NOT granted to any person or entity to use, copy, modify, merge, publish, distribute, sublicense, sell, license, or create derivative works from the Software, in whole or in part, for any purpose, whether commercial, non-commercial, personal, educational, or otherwise.
+
+No Commercial or Personal Use
+------------------------------
+The Software may not be used for commercial purposes or for personal use of any kind. Any use of the Software requires prior written permission from the copyright holder.
+
+No Redistribution
+-----------------
+Redistribution of the Software, in original or modified form, is strictly prohibited without explicit prior written consent.
+
+Viewing Permission
+------------------
+The Software may be viewed on GitHub solely for reference purposes. Such viewing does not grant any license or rights to use the Software.
+
+Enforcement
+-----------
+Any unauthorized use of the Software may result in legal action.
+
+For licensing inquiries, contact: [your email address]
